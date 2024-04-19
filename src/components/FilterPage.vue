@@ -54,13 +54,22 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch('/SDG_2023.json')
-        .then(response => response.json())
-        .then(data => {
-          this.projects = data.projects;
-          this.filteredProjects = [...data.projects];
-          this.loading = false;
-        });
+  fetch(`${process.env.BASE_URL}SDG_2023.json`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      this.projects = data.projects;
+      this.filteredProjects = [...this.projects];
+      this.loading = false;
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      this.loading = false; // Ensure loading is false even if there's an error
+    });
     },
     selectCountry(countryCodes) {
       this.selectedCountryCodes = countryCodes;

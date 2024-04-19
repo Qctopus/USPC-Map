@@ -1,7 +1,7 @@
 <template>
   <div class="project-card">
     <div class="card-content">
-      <img :src="'/logo/' + project.agency + '.png'" alt="Agency Logo" class="agency-logo">
+      <img :src="logoSrc" alt="Agency Logo" class="agency-logo">
       <div class="card-details">
         <h3>{{ project.title || 'No title available' }}</h3>
         <p><strong>Country:</strong> {{ project.country || 'No country available' }}</p>
@@ -23,6 +23,11 @@ export default {
     project: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    logoSrc() {
+      return `${process.env.BASE_URL}logo/UNDP.png`;
     }
   }
 };

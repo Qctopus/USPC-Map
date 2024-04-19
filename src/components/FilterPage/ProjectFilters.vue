@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panels accordion multiple>
     <!-- Continents Filter -->
-    <v-expansion-panel>
+    <v-expansion-panel hide-actions>
       <v-select
         v-model="selectedContinent"
         :items="continentList"
@@ -12,8 +12,9 @@
         @change="keepDropdownOpen"
       ></v-select>
     </v-expansion-panel>
+ 
     <!-- Countries Filter -->
-    <v-expansion-panel>
+    <v-expansion-panel hide-actions>
       <v-select
         v-model="selectedCountry"
         :items="filteredCountryList"
@@ -24,8 +25,9 @@
         @change="keepDropdownOpen"
       ></v-select>
     </v-expansion-panel>
+ 
     <!-- Topic Filter -->
-    <v-expansion-panel>
+    <v-expansion-panel hide-actions>
       <v-select
         v-model="selectedTopic"
         :items="topicList"
@@ -36,8 +38,9 @@
         @change="keepDropdownOpen"
       ></v-select>
     </v-expansion-panel>
+ 
     <!-- Year Filter -->
-    <v-expansion-panel>
+    <v-expansion-panel hide-actions>
       <v-select
         v-model="selectedYear"
         :items="yearList"
@@ -48,8 +51,9 @@
         @change="keepDropdownOpen"
       ></v-select>
     </v-expansion-panel>
+ 
     <!-- Budget Filter -->
-    <v-expansion-panel>
+    <v-expansion-panel hide-actions>
       <v-range-slider
         :disabled="isAnyDropdownOpen"
         v-model="selectedBudgetRange"
@@ -61,7 +65,7 @@
       ></v-range-slider>
     </v-expansion-panel>
   </v-expansion-panels>
-</template>
+ </template>
 
 <script>
 export default {
@@ -150,4 +154,5 @@ export default {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 </style>

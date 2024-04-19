@@ -98,7 +98,7 @@ export default defineComponent({
       }
       const leafletMap = mapRef.value.$data.map;
 
-      const projectResponse = await fetch('/SDG_2023.json');
+      const projectResponse = await fetch('SDG_2023.json');
       const projectData = await projectResponse.json();
 
       countryFunding = {};
@@ -108,9 +108,9 @@ export default defineComponent({
         countryFunding[countryCode] = (countryFunding[countryCode] || 0) + budget;
       });
 
-      const geoResponse = await fetch('/countries.json');
+      const geoResponse = await fetch('countries.json');
       const geoData = await geoResponse.json();
-
+      
       geoLayer = L.geoJSON(geoData, {
         style: feature => {
           const countryCode = feature.properties.ISO_A2;
