@@ -29,7 +29,8 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const mapRef = ref(null);
-    const arcgisTileUrl = 'https://geoservices.un.org/arcgis/rest/services/ClearMap_WebTopo/MapServer/tile/{z}/{y}/{x}?blankTile=false';
+    const arcgisTileUrl = 'https://geoservices.un.org/arcgis/rest/services/ClearMap_Topo/MapServer/tile/{z}/{y}/{x}?blankTile=false';
+
     let geoLayer = null;
     const selectedCountries = new Set();
     let countryFunding = {};
